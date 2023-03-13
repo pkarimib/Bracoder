@@ -1,1 +1,1 @@
-SUBDIRS = third_party src
+SUBDIRS = src
