@@ -2,13 +2,13 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([captain-eo], [0.1], [excamera@cs.stanford.edu])
+AC_INIT([captain-eo], [0.2], [excamera@cs.stanford.edu])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_SRCDIR([src/display/display.hh])
 AC_CONFIG_HEADERS([config.h])
 
 # Add picky CXXFLAGS
-CXX14_FLAGS="-std=c++14 -pthread"
+CXX14_FLAGS="-std=c++20 -pthread"
 PICKY_CXXFLAGS="-pedantic -Wall -Wextra -Weffc++ -Werror -Wno-non-virtual-dtor"
 AC_SUBST([CXX14_FLAGS])
 AC_SUBST([PICKY_CXXFLAGS])
@@ -28,17 +28,12 @@ PKG_CHECK_MODULES([XCBPRESENT], [xcb-present])
 # Checks for library functions.
 
 AC_CONFIG_FILES([Makefile
-         third_party/Makefile
-         third_party/decklink/Makefile
-         third_party/daala_tools/Makefile
          src/Makefile
          src/util/Makefile
          src/display/Makefile
-         src/playback/Makefile
          src/rgb-example/Makefile
-         src/capture/Makefile
          src/barcoder/Makefile
-         src/scanner/Makefile
-	      src/tests/Makefile
-	 ])
+         src/tests/Makefile
+	])
+     
 AC_OUTPUT
